@@ -4,9 +4,6 @@ const {
   getCurrentUser,
   updateUser,
 } = require('../controllers/users');
-// const {
-
-// } = require('../validation/users');
 
 usersRouter.get('/', getUsers);
 usersRouter.get('/me', getCurrentUser);

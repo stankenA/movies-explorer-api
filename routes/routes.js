@@ -6,9 +6,13 @@ const {
   createUser,
 } = require('../controllers/users');
 const NotFoundError = require('../errors/NotFoundError');
+const {
+  validationForRegistration,
+  validationForLogin,
+} = require('../validation/auth');
 
-router.post('/signup', createUser);
-router.post('/signin', login);
+router.post('/signup', validationForRegistration, createUser);
+router.post('/signin', validationForLogin, login);
 
 router.use(auth);
 
