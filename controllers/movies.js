@@ -2,6 +2,7 @@ const Movie = require('../models/movie');
 const NotFoundError = require('../errors/NotFoundError');
 const BadRequestError = require('../errors/BadRequestError');
 const ForbiddenError = require('../errors/ForbiddenError');
+const ConflictError = require('../errors/ConflictError');
 
 const getAllMovies = async (req, res, next) => {
   try {
@@ -47,6 +48,8 @@ const createNewMovie = async (req, res, next) => {
   } catch (err) {
     if (err.name === 'ValidationError') {
       next(new BadRequestError('Некорректно переданы данные о фильме'));
+    } else if (err.code === 11000) {
+      next(new ConflictError('Фильм с таким id уже есть в базе данных'));
     } else {
       next(err);
     }
