@@ -6,7 +6,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  direcotr: {
+  director: {
     type: String,
     required: true,
   },
@@ -31,7 +31,7 @@ const movieSchema = new mongoose.Schema({
         require_tld: true,
         require_protocol: true,
       }),
-      message: 'Должен быть введён корректны URL адрес',
+      message: 'Должен быть введён корректный URL адрес',
     },
   },
   trailerLink: {
@@ -43,7 +43,7 @@ const movieSchema = new mongoose.Schema({
         require_tld: true,
         require_protocol: true,
       }),
-      message: 'Должен быть введён корректны URL адрес',
+      message: 'Должен быть введён корректный URL адрес',
     },
   },
   thumbnail: {
@@ -55,7 +55,7 @@ const movieSchema = new mongoose.Schema({
         require_tld: true,
         require_protocol: true,
       }),
-      message: 'Должен быть введён корректны URL адрес',
+      message: 'Должен быть введён корректный URL адрес',
     },
   },
   owner: {
@@ -64,7 +64,7 @@ const movieSchema = new mongoose.Schema({
     ref: 'user',
   },
   movieId: {
-    type: String,
+    type: Number,
     required: true,
     unique: true,
   },
