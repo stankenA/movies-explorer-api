@@ -7,15 +7,6 @@ const ConflictError = require('../errors/ConflictError');
 
 const { JWT_SECRET, NODE_ENV } = process.env;
 
-const getUsers = async (req, res, next) => {
-  try {
-    const response = await User.find({});
-    res.send(response);
-  } catch (err) {
-    next(err);
-  }
-};
-
 const getCurrentUser = async (req, res, next) => {
   try {
     const response = await User.findById(req.user._id);
@@ -96,7 +87,6 @@ const login = async (req, res, next) => {
 };
 
 module.exports = {
-  getUsers,
   getCurrentUser,
   createUser,
   updateUser,
