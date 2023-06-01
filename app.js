@@ -5,7 +5,7 @@ const { errors } = require('celebrate');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 // const routes = require('./routes/routes');
-// const сentralizedErrors = require('./middlewares/errors');
+const сentralizedErrors = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('./middlewares/cors');
 
@@ -36,6 +36,6 @@ app.use(helmet());
 app.use(errorLogger);
 
 app.use(errors());
-// app.use(сentralizedErrors);
+app.use(сentralizedErrors);
 
 app.listen(PORT);
