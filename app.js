@@ -2,8 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
-const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
+const limiter = require('./middlewares/limiter');
 const routes = require('./routes/routes');
 const сentralizedErrors = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -17,13 +17,6 @@ app.use(express.urlencoded({ extended: true })); // для приёма веб-�
 
 mongoose.connect(MONGO_URL, {
   family: 4,
-});
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
-  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
 
 app.use(requestLogger);
