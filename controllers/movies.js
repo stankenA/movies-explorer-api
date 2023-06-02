@@ -44,7 +44,7 @@ const createNewMovie = async (req, res, next) => {
       owner: req.user._id,
     });
 
-    res.send(newMovie);
+    res.status(201).send(newMovie);
   } catch (err) {
     if (err.name === 'ValidationError') {
       next(new BadRequestError('Некорректно переданы данные о фильме'));
