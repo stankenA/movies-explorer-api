@@ -5,8 +5,10 @@ const ForbiddenError = require('../errors/ForbiddenError');
 const ConflictError = require('../errors/ConflictError');
 
 const getAllMovies = async (req, res, next) => {
+  const userId = req.user._id;
+
   try {
-    const movies = await Movie.find({}).populate('owner');
+    const movies = await Movie.find({ owner: userId }).populate('owner');
     res.send(movies);
   } catch (err) {
     next(err);
