@@ -5,6 +5,7 @@ const allowedCors = [
   'https://api.movies-exporer.nomoredomains.rocks',
   'localhost:3000',
   'http://localhost:3000',
+  'http://localhost:3000/',
 ];
 
 module.exports = {
