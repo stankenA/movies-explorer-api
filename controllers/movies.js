@@ -59,11 +59,11 @@ const createNewMovie = async (req, res, next) => {
 };
 
 const deleteMovie = async (req, res, next) => {
-  const { movieId } = req.params;
+  const { id } = req.params;
   const userId = req.user._id;
 
   try {
-    const movie = await Movie.findOne({ movieId });
+    const movie = await Movie.findById(id);
     if (!movie) {
       throw new NotFoundError('Ошибка удаления. Фильм с таким id не найден');
     }
