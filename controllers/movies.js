@@ -51,6 +51,7 @@ const createNewMovie = async (req, res, next) => {
     if (err.name === 'ValidationError') {
       next(new BadRequestError('Некорректно переданы данные о фильме'));
     } else if (err.code === 11000) {
+      console.log(err);
       next(new ConflictError('Фильм с таким id уже есть в базе данных'));
     } else {
       next(err);
