@@ -39,6 +39,5 @@
 
 ## Ссылки на проект:
 
-IP 51.250.85.120
-
-Backend http://api.movies-exporer.nomoredomains.rocks
+- Публичный IP: 84.201.135.206
+- Ссылка на бэкенд сервера: http://api.movies-exporer.nomoredomains.rocks
